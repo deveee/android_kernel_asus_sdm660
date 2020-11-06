@@ -2572,6 +2572,10 @@ int32_t get_ID_vadc_voltage(void)
 
 void read_BR_countrycode_work(struct work_struct *work)
 {
+	// Hack for selinux
+	BR_countrycode = COUNTRY_OTHER;
+	return;
+
 	struct file *fp = NULL;
 	mm_segment_t old_fs;
 	loff_t pos_lsts = 0;
